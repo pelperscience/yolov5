@@ -423,7 +423,7 @@ if __name__ == '__main__':
     parser.add_argument('--nosave', action='store_true', help='only save final checkpoint') ########################################### action='store_False'
     parser.add_argument('--notest', action='store_true', help='only test final epoch') ########################################### action='store_False'
     parser.add_argument('--noautoanchor', action='store_true', help='disable autoanchor check') ########################################### action='store_False'
-    parser.add_argument('--evolve', action='store_true', help='evolve hyperparameters')
+    parser.add_argument('--evolve', action='store_true', help='evolve hyperparameters') ########################################### action='store_False'
     parser.add_argument('--bucket', type=str, default='', help='gsutil bucket')
     parser.add_argument('--cache-images', action='store_true', help='cache images for faster training')
     parser.add_argument('--image-weights', action='store_true', help='use weighted image selection for training')
