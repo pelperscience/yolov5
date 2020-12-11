@@ -183,7 +183,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
 
     # Trainloader
     dataloader, dataset = create_dataloader(train_path, imgsz, batch_size, gs, opt,
-                                            hyp=hyp, augment=True, cache=opt.cache_images, rect=opt.rect, rank=rank,
+                                            hyp=hyp, augment=True, cache=opt.cache_images, rect=opt.rect, rank=rank,      # augment=False
                                             world_size=opt.world_size, workers=opt.workers,
                                             image_weights=opt.image_weights)
     mlc = np.concatenate(dataset.labels, 0)[:, 0].max()  # max label class
