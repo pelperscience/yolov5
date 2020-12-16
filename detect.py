@@ -85,10 +85,10 @@ def detect(save_img=False):
     print(img_detections)
     list2=[]
     for i in range(len(img_detections)):
-        if img_detections[i] == None:
+        if img_detections[i].cpu() == torch.tensor([]):
             list2.append('')
         else:
-            arr1=np.asarray(sorted(np.array(img_detections[i]),key=lambda x:x[0]))[:,-1]
+            arr1=np.asarray(sorted(np.array(img_detections[i].cpu()),key=lambda x:x[0]))[:,-1]
             arr2=arr1.astype(int)
             str1=''
             for x in arr2:
