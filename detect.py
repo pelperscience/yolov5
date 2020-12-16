@@ -50,7 +50,7 @@ def detect(save_img=False):
         cudnn.benchmark = True  # set True to speed up constant image size inference
         dataset = LoadStreams(source, img_size=imgsz)
     else:
-        save_img = True ############################################# Flase
+        save_img = True ############################################# False
         dataset = LoadImages(source, img_size=imgsz)
 
     # Get names and colors
@@ -99,7 +99,7 @@ def detect(save_img=False):
     df_submit = pd.read_csv('yolov5/mchar_sample_submit_A.csv')
     df_submit['file_code'] = list2
     df_submit.to_csv('drive/MyDrive/colab/CV_jiejing/yolov5/runs/detect/submit.csv', index=None)
-        '''
+    '''
         # Process detections
         for i, det in enumerate(pred):  # detections per image
             if webcam:  # batch_size >= 1
