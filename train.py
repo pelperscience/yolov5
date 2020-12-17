@@ -414,7 +414,7 @@ if __name__ == '__main__':
     parser.add_argument('--weights', type=str, default='yolov5s.pt', help='initial weights path') ########################################### yolov5x.pt
     parser.add_argument('--cfg', type=str, default='', help='model.yaml path') ########################################### yolov5x.yaml
     parser.add_argument('--data', type=str, default='data/coco128.yaml', help='data.yaml path') ########################################### 修改coco128.yaml
-    parser.add_argument('--hyp', type=str, default='data/hyp.scratch.yaml', help='hyperparameters path')
+    parser.add_argument('--hyp', type=str, default='data/hyp.scratch.yaml', help='hyperparameters path') ########################################### 修改hyp.scratch.yaml
     parser.add_argument('--epochs', type=int, default=300)
     parser.add_argument('--batch-size', type=int, default=16, help='total batch size for all GPUs') ###
     parser.add_argument('--img-size', nargs='+', type=int, default=[640, 640], help='[train, test] image sizes') ### img-size must be multiple of max stride 32
