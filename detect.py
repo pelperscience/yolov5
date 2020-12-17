@@ -82,10 +82,10 @@ def detect(save_img=False):
             pred = apply_classifier(pred, modelc, img, im0s)
 
         img_detections.extend(pred) # 添加
-    print(img_detections)
+    print(img_detections[:100])
     list2=[]
     for i in range(len(img_detections)):
-        if img_detections[i].cpu() == torch.tensor([]):
+        if sorted(np.array(img_detections[i].cpu()),key=lambda x:x[0]) == []:
             list2.append('')
         else:
             arr1=np.asarray(sorted(np.array(img_detections[i].cpu()),key=lambda x:x[0]))[:,-1]
@@ -94,11 +94,11 @@ def detect(save_img=False):
             for x in arr2:
                 str1+=str(x)
             list2.append(str1)
-    print(list2)
+    print(list2[:100])
     
     df_submit = pd.read_csv('yolov5/mchar_sample_submit_A.csv')
     df_submit['file_code'] = list2
-    df_submit.to_csv('drive/MyDrive/colab/CV_jiejing/yolov5/runs/detect/submit.csv', index=None)
+    df_submit.to_csv('drive/MyDrive/colab/CV_jiejing/yolov5/runs/detect/submit.csv', index=None) #############################################
     '''
         # Process detections
         for i, det in enumerate(pred):  # detections per image
