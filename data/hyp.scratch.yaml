@@ -23,10 +23,10 @@ fl_gamma: 0.0  # focal loss gamma (efficientDet default gamma=1.5)
 hsv_h: 0.015  # image HSV-Hue augmentation (fraction) # 色调
 hsv_s: 0.7  # image HSV-Saturation augmentation (fraction) # 饱和度
 hsv_v: 0.4  # image HSV-Value augmentation (fraction) # 明度
-degrees: 0.0  # image rotation (+/- deg) #旋转角度 ################################################### 0.1
+degrees: 0.0  # image rotation (+/- deg) #旋转角度 ################################################### 30
 translate: 0.1  # image translation (+/- fraction) # 水平和垂直平移
 scale: 0.5  # image scale (+/- gain) # 缩放
-shear: 0.0  # image shear (+/- deg) # 剪切
+shear: 0.0  # image shear (+/- deg) # 剪切 ################################################### 5
 perspective: 0.0  # image perspective (+/- fraction), range 0-0.001 # 透视变换参数
 flipud: 0.0  # image flip up-down (probability) # 上下翻转
 fliplr: 0.5  # image flip left-right (probability) # 左右翻转 ################################################### 0
