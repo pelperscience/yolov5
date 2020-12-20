@@ -373,11 +373,11 @@ def print_mutation(hyp, results, yaml_file='hyp_evolved.yaml', bucket=''):
         if gsutil_getsize(url) > (os.path.getsize('evolve.txt') if os.path.exists('evolve.txt') else 0):
             os.system('gsutil cp %s .' % url)  # download evolve.txt if larger than local
 
-    with open('evolve.txt', 'a') as f:  # append result
+    with open('evolve.txt', 'a') as f:  # append result ################################################ drive/MyDrive/colab/CV_jiejing/yolov5/runs/evolve.txt
         f.write(c + b + '\n')
-    x = np.unique(np.loadtxt('evolve.txt', ndmin=2), axis=0)  # load unique rows
+    x = np.unique(np.loadtxt('evolve.txt', ndmin=2), axis=0)  # load unique rows ################################################ drive/MyDrive/colab/CV_jiejing/yolov5/runs/evolve.txt
     x = x[np.argsort(-fitness(x))]  # sort
-    np.savetxt('evolve.txt', x, '%10.3g')  # save sort by fitness
+    np.savetxt('evolve.txt', x, '%10.3g')  # save sort by fitness ################################################ drive/MyDrive/colab/CV_jiejing/yolov5/runs/evolve.txt
 
     # Save yaml
     for i, k in enumerate(hyp.keys()):
