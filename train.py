@@ -392,7 +392,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
                 os.rename(f1, f2)  # rename
                 if str(f2).endswith('.pt'):  # is *.pt
                     strip_optimizer(f2)  # strip optimizer
-                    os.system('gsutil cp %s gs://%s/weights' % (f2, opt.bucket)) if opt.bucket else None  # upload ########################################### 加#
+                    os.system('gsutil cp %s gs://%s/weights' % (f2, opt.bucket)) if opt.bucket else None  # upload
         # Finish
         if plots:
             plot_results(save_dir=save_dir)  # save as results.png
@@ -567,7 +567,7 @@ if __name__ == '__main__':
             results = train(hyp.copy(), opt, device, wandb=wandb)
 
             # Write mutation results
-            print_mutation(hyp.copy(), results, yaml_file, opt.bucket)
+            print_mutation(hyp.copy(), results, yaml_file, opt.bucket) ########################################### 修改utils.general.print_mutation
 
         # Plot results
         plot_evolution(yaml_file)
