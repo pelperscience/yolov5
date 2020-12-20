@@ -424,7 +424,7 @@ if __name__ == '__main__':
     parser.add_argument('--notest', action='store_true', help='only test final epoch')
     parser.add_argument('--noautoanchor', action='store_true', help='disable autoanchor check')
     parser.add_argument('--evolve', action='store_true', help='evolve hyperparameters')
-    parser.add_argument('--bucket', type=str, default='', help='gsutil bucket') # 谷歌云盘bucket，一般不会用到
+    parser.add_argument('--bucket', type=str, default='', help='gsutil bucket') # 谷歌云盘路径，存放evolve.txt ########################################### default='drive/MyDrive/colab/CV_jiejing/yolov5/runs'
     parser.add_argument('--cache-images', action='store_true', help='cache images for faster training') ### 是否提前缓存图片到内存，以加快训练速度，默认False
     parser.add_argument('--image-weights', action='store_true', help='use weighted image selection for training')
     parser.add_argument('--device', default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
