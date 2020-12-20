@@ -424,7 +424,7 @@ if __name__ == '__main__':
     parser.add_argument('--notest', action='store_true', help='only test final epoch')
     parser.add_argument('--noautoanchor', action='store_true', help='disable autoanchor check')
     parser.add_argument('--evolve', action='store_true', help='evolve hyperparameters')
-    parser.add_argument('--bucket', type=str, default='', help='gsutil bucket') # 谷歌云盘路径，存放evolve.txt ########################################### default='drive/MyDrive/colab/CV_jiejing/yolov5/runs'
+    parser.add_argument('--bucket', type=str, default='', help='gsutil bucket') # 谷歌云bucket, 不会用
     parser.add_argument('--cache-images', action='store_true', help='cache images for faster training') ### 是否提前缓存图片到内存，以加快训练速度，默认False
     parser.add_argument('--image-weights', action='store_true', help='use weighted image selection for training')
     parser.add_argument('--device', default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
@@ -532,10 +532,10 @@ if __name__ == '__main__':
             os.system('gsutil cp gs://%s/evolve.txt .' % opt.bucket)  # download evolve.txt if exists
 
         for _ in range(300):  # generations to evolve
-            if Path('evolve.txt').exists():  # if evolve.txt exists: select best hyps and mutate
+            if Path('evolve.txt').exists():  # if evolve.txt exists: select best hyps and mutate ########################################### 'drive/MyDrive/colab/CV_jiejing/yolov5/runs/evolve.txt'
                 # Select parent(s)
                 parent = 'single'  # parent selection method: 'single' or 'weighted'
-                x = np.loadtxt('evolve.txt', ndmin=2)
+                x = np.loadtxt('evolve.txt', ndmin=2)  ########################################### 'drive/MyDrive/colab/CV_jiejing/yolov5/runs/evolve.txt'
                 n = min(5, len(x))  # number of previous results to consider
                 x = x[np.argsort(-fitness(x))][:n]  # top n mutations
                 w = fitness(x) - fitness(x).min()  # weights
