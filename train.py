@@ -534,7 +534,7 @@ if __name__ == '__main__':
         for _ in range(300):  # generations to evolve ########################################### evolve次数
             if Path('evolve.txt').exists():  # if evolve.txt exists: select best hyps and mutate ########################################### 'drive/MyDrive/colab/CV_jiejing/yolov5/runs/evolve.txt'
                 # Select parent(s)
-                parent = 'single'  # parent selection method: 'single' or 'weighted'
+                parent = 'single'  # parent selection method: 'single' or 'weighted' ###########################################
                 x = np.loadtxt('evolve.txt', ndmin=2)  ########################################### 'drive/MyDrive/colab/CV_jiejing/yolov5/runs/evolve.txt'
                 n = min(5, len(x))  # number of previous results to consider
                 x = x[np.argsort(-fitness(x))][:n]  # top n mutations
