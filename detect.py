@@ -13,8 +13,8 @@ from utils.general import check_img_size, non_max_suppression, apply_classifier,
     strip_optimizer, set_logging, increment_path
 from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
-import pandas as pd # 添加
-import numpy as np # 添加
+import pandas as pd ############################################## 添加
+import numpy as np ############################################## 添加
 
 
 def detect(save_img=False):
@@ -61,7 +61,7 @@ def detect(save_img=False):
     t0 = time.time()
     img = torch.zeros((1, 3, imgsz, imgsz), device=device)  # init img
     _ = model(img.half() if half else img) if device.type != 'cpu' else None  # run once
-    img_detections = [] # 添加
+    img_detections = [] ############################################## 添加
     for path, img, im0s, vid_cap in dataset:
         img = torch.from_numpy(img).to(device)
         img = img.half() if half else img.float()  # uint8 to fp16/32
@@ -81,7 +81,7 @@ def detect(save_img=False):
         if classify:
             pred = apply_classifier(pred, modelc, img, im0s)
 
-        img_detections.extend(pred) # 添加
+        img_detections.extend(pred) ############################################## 添加
     print(img_detections[:100])
     list2=[]
     for i in range(len(img_detections)):
@@ -99,7 +99,7 @@ def detect(save_img=False):
     df_submit = pd.read_csv('yolov5/mchar_sample_submit_A.csv')
     df_submit['file_code'] = list2
     df_submit.to_csv('drive/MyDrive/colab/CV_jiejing/yolov5/runs/detect/submit.csv', index=None) #############################################
-    '''
+    #############################################下面的注释'''
         # Process detections
         for i, det in enumerate(pred):  # detections per image
             if webcam:  # batch_size >= 1
@@ -163,7 +163,7 @@ def detect(save_img=False):
         print(f"Results saved to {save_dir}{s}")
 
     print('Done. (%.3fs)' % (time.time() - t0))
-    '''
+    #############################################上面的注释'''
 
 
 if __name__ == '__main__':
