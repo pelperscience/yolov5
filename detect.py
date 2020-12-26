@@ -15,7 +15,7 @@ from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
 import pandas as pd ############################################## 添加
 import numpy as np ############################################## 添加
-
+from tqdm import tqdm ############################################## 添加
 
 def detect(save_img=False):
     source, weights, view_img, save_txt, imgsz = opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size
@@ -62,7 +62,7 @@ def detect(save_img=False):
     img = torch.zeros((1, 3, imgsz, imgsz), device=device)  # init img
     _ = model(img.half() if half else img) if device.type != 'cpu' else None  # run once
     img_detections = [] ############################################## 添加
-    for path, img, im0s, vid_cap in dataset:
+    for path, img, im0s, vid_cap in dataset: ############################################## tqdm(dataset)
         img = torch.from_numpy(img).to(device)
         img = img.half() if half else img.float()  # uint8 to fp16/32
         img /= 255.0  # 0 - 255 to 0.0 - 1.0
