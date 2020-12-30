@@ -8,7 +8,7 @@
 
 # download command/URL (optional)
 download: https://github.com/ultralytics/yolov5/releases/download/v1.0/coco128.zip  ############################################# https://github.com/pelperscience/yolov5/releases/download/v4.0/custom.zip
-                                                                                    ############################################# https://github.com/pelperscience/yolov5/releases/download/v6.0/customfull.zip https://github.com/pelperscience/yolov5/releases/download/v5.0/customfull.rar
+          ############################################# https://github.com/pelperscience/yolov5/releases/download/v6.0/customfull.zip 不要用.rar
 # train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
 train: ../coco128/images/train2017/  # 128 images  ############################################# ../custom/images/train/
 val: ../coco128/images/train2017/  # 128 images    ############################################# ../custom/images/val/
