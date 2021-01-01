@@ -194,7 +194,7 @@ def train(hyp, opt, device, tb_writer=None, wandb=None):
     if rank in [-1, 0]:
         ema.updates = start_epoch * nb // accumulate  # set EMA updates
         testloader = create_dataloader(test_path, imgsz_test, total_batch_size, gs, opt,
-                                       hyp=hyp, cache=opt.cache_images and not opt.notest, rect=True,
+                                       hyp=hyp, cache=opt.cache_images and not opt.notest, rect=True, ########################################### , augment=True
                                        rank=-1, world_size=opt.world_size, workers=opt.workers)[0]  # testloader
 
         if not opt.resume:
@@ -503,7 +503,7 @@ if __name__ == '__main__':
                 'warmup_momentum': (1, 0.0, 0.95),  # warmup initial momentum
                 'warmup_bias_lr': (1, 0.0, 0.2),  # warmup initial bias lr
                 'box': (1, 0.02, 0.2),  # box loss gain
-                'cls': (1, 0.2, 4.0),  # cls loss gain
+                'cls': (1, 0.2, 4.0),  # cls loss gain ########################################### (1, 1.5, 4.0)
                 'cls_pw': (1, 0.5, 2.0),  # cls BCELoss positive_weight
                 'obj': (1, 0.2, 4.0),  # obj loss gain (scale with pixels)
                 'obj_pw': (1, 0.5, 2.0),  # obj BCELoss positive_weight
